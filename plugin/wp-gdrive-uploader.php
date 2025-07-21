@@ -41,5 +41,3 @@ register_deactivation_hook(__FILE__, function() {
 add_action('wp_gdrive_upload_cron', function() {
     WP_GDrive_Uploader::upload_files();
 });
-
-do_action('wp_gdrive_upload_cron');
