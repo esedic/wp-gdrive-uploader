@@ -20,9 +20,9 @@ new WP_GDrive_FileUploader();
 
 
 add_filter('cron_schedules', function($schedules) {
-    $schedules['every_2_minutes'] = [
-        'interval' => 120,
-        'display'  => __('Every 2 Minutes')
+    $schedules['every_5_minutes'] = [
+        'interval' => 300,
+        'display'  => __('Every 3 Minutes')
     ];
     return $schedules;
 });
@@ -30,7 +30,7 @@ add_filter('cron_schedules', function($schedules) {
 
 register_activation_hook(__FILE__, function() {
     if (!wp_next_scheduled('wp_gdrive_upload_cron')) {
-        wp_schedule_event(time(), 'every_2_minutes', 'wp_gdrive_upload_cron');
+        wp_schedule_event(time(), 'every_5_minutes', 'wp_gdrive_upload_cron');
     }
 });
 
